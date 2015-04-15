@@ -1,6 +1,5 @@
 *code:*
-------------
-
+--------------
 var value = 5;
 
 var add = function (a, b){
@@ -10,8 +9,9 @@ var add = function (a, b){
 myObj = {};
 myObj.double = function (){
 	this.value = 3;
+	var that = this;
 	var helper = function(){
-		this.value = add(this.value, this.value);
+		that.value = add(that.value, that.value);
 	}
 	helper();
 	console.log(this.value);
@@ -19,12 +19,13 @@ myObj.double = function (){
 
 
 *call:*
------------
+-------------
 myObj.double();
 //result
-3
-//value === 10
+6
+//value === 5
+
 
 *note:*
 ------------
-有问题的function是helper, 其中this是指向全局变量value的
+用that代替this可以改变helper内部的this指向问题
