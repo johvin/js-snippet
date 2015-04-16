@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>window.name跨越Example</title>
+</head>
+<body>
+	<h3>window.name跨越Example</h3>
+	<button onclick="getCorsData(this)" data-cors-url='data.html'>get cors data</button>
+	<div id="data"></div>
+
+	<script type="text/javascript" src="cors-name.js"></script>
+	<script type="text/javascript">
+	function getCorsData(elem) {
+		var mycors = window['cors-name'];
+		mycors.setCorsUrl(elem.dataset.corsUrl);
+		mycors.request(function(data){
+			document.querySelector('#data').innerHTML = data;
+		});
+	}
+	</script>
+</body>
+</html>

@@ -27,4 +27,5 @@ myObj.double();
 
 *note:*
 ------------
-有问题的function是helper, 其中this是指向全局变量value的
+有问题的function是helper, 其中this是指向全局变量value的,
+this到对象的绑定发生在调用的时候。
